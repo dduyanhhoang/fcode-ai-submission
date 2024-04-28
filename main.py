@@ -69,24 +69,24 @@ if __name__ == "__main__":
                 print("Warehouse not found.")
             time.sleep(2)  
             os.system('cls')
-            if c == '4':
-                item = Route()
-                try:
-                    item.input_data()
-                    if not rdb.check_route(item.origin, item.destination):
-                        rdb.add_route(item)
-                        print("Route added successfully!")
-                        time.sleep(2)  # Give user time to read the success message.
-                    else:
-                        print("This route already exists or there is an issue with the warehouse names.")
-                        time.sleep(2)  # Give user time to read the error message.
-                except ValueError as e:
-                    print(f"Invalid input: {e}")
+        if c == '4':
+            item = Route()
+            try:
+                item.input_data()
+                if not rdb.check_route(item.origin, item.destination):
+                    rdb.add_route(item)
+                    print("Route added successfully!")
+                    time.sleep(2)  # Give user time to read the success message.
+                else:
+                    print("This route already exists or there is an issue with the warehouse names.")
                     time.sleep(2)  # Give user time to read the error message.
-                except Exception as e:
-                    print(f"An error occurred: {e}")
-                    time.sleep(2)  # Give user time to read the error message.
-                os.system('cls')
+            except ValueError as e:
+                print(f"Invalid input: {e}")
+                time.sleep(2)  # Give user time to read the error message.
+            except Exception as e:
+                print(f"An error occurred: {e}")
+                time.sleep(2)  # Give user time to read the error message.
+            os.system('cls')
 
         if c == '5':
             if not rdb.edit_route():  # No need to pass None here, function needs no arguments
