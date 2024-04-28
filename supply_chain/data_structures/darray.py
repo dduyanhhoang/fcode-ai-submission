@@ -17,7 +17,10 @@ class DynamicArray:
         elif isinstance(k, slice):
             # Handle slice case
             start, stop, step = k.indices(self._n)  # Calculate actual indices from slice
-            return [self._A[i] for i in range(start, stop, step)]  # Create a list from slice
+            slice_array = DynamicArray()  # Create a new DynamicArray for slice
+            for i in range(start, stop, step):
+                slice_array.append(self._A[i])
+            return slice_array
         else:
             raise TypeError('Invalid argument type.')
 
@@ -31,6 +34,16 @@ class DynamicArray:
             self._resize(2 * self._capacity)
         self._A[self._n] = obj
         self._n += 1
+
+    def _resize(self, c):
+        B = self._make_array(c)
+        for k in range(self._n):
+            B[k] = self._A[k]
+        self._A = B
+        self._capacity = c
+
+    def _make_array(self, c):
+        return (c * ctypes.py_object)()
 
     def pop(self):
         if self._n == 0:
@@ -49,16 +62,6 @@ class DynamicArray:
                 self._n -= 1
                 return True
         return False
-
-    def _resize(self, c):
-        B = self._make_array(c)
-        for k in range(self._n):
-            B[k] = self._A[k]
-        self._A = B
-        self._capacity = c
-
-    def _make_array(self, c):
-        return (c * ctypes.py_object)()
 
     def index(self, value):
         for i in range(self._n):
