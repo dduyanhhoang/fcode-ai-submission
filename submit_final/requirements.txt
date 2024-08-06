@@ -1,0 +1,11 @@
+jupyter
+jupyterlab
+numpy
+pandas
+scikit-learn
+matplotlib
+seaborn
+selenium
+undetected-chromedriver
+bs4
+loguru
