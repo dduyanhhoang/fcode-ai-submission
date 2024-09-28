@@ -1,0 +1,1 @@
+Data source: [passionate-nlp, Twitter Sentiment Analysis, Kaggle](https://www.kaggle.com/datasets/jp797498e/twitter-entity-sentiment-analysis)
