@@ -1,5 +1,4 @@
-import pytest
-from src.matrix import Matrix
+from linalg.src.matrix import Matrix
 
 def test_init():
     m = Matrix(2, 3)
