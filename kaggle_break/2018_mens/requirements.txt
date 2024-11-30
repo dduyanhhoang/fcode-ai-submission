@@ -1,0 +1,14 @@
+kaggle
+numpy~=2.0.2
+pandas~=2.2.3
+scikit-learn~=1.5.2
+matplotlib~=3.9.2
+seaborn
+jupyterlab
+jupyter
+pytest
+black
+black[jupyter]
+isort
+loguru
+pillow~=11.0.0
