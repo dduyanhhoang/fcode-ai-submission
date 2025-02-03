@@ -9,7 +9,7 @@ def linear_search(haystack: List[int], needle: int) -> bool:
         raise ValueError("haystack is not a List")
 
     for i in haystack:
-        if isinstance(i, int):
+        if not isinstance(i, int):
             raise ValueError("haystack must have only ints")
 
     for i in haystack:
